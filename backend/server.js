@@ -49,30 +49,60 @@ app.get('/health', (req, res) => {
   });
 });
 
-// Инициализация базы данных и запуск сервера
-const startServer = async () => {
-  console.log('🚀 Starting server...');
-  console.log('📁 Environment:', process.env.NODE_ENV || 'development');
+// Database check endpoint
+app.get('/api/db-check', async (req, res) => {
+    try {
+      const { pool } = require('./database');
+      const client = await pool.connect();
 
-  try {
-    if (process.env.NODE_ENV !== 'production') {
-      // В разработке инициализируем базу
-      await initDB();
-    }
+      // Проверяем таблицы
+      const messages = await client.query('SELECT COUNT(*) FROM messages');
+      const contacts = await client.query('SELECT COUNT(*) FROM contacts');
 
-    app.listen(PORT, () => {
-      console.log(`🎉 Server running on port ${PORT}`);
-      console.log(`🔗 Health check: http://localhost:${PORT}/health`);
-    });
-  } catch (error) {
-    console.error('💥 Failed to start server:', error);
-    // В продакшене продолжаем работать даже без БД
-    if (process.env.NODE_ENV === 'production') {
-      app.listen(PORT, () => {
-        console.log(`🚨 Server running in fallback mode on port ${PORT}`);
+      client.release();
+
+      res.json({
+        status: 'OK',
+        database: 'Connected',
+        tables: {
+          messages: parseInt(messages.rows[0].count),
+          contacts: parseInt(contacts.rows[0].count)
+        },
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: 'ERROR',
+        database: 'Disconnected',
+        error: error.message,
+        timestamp: new Date().toISOString()
       });
     }
-  }
-};
+  });
+
+// Инициализация базы данных и запуск сервера
+// Инициализация базы данных и запуск сервера
+const startServer = async () => {
+    console.log('🚀 Starting server...');
+    console.log('📁 Environment:', process.env.NODE_ENV || 'development');
+
+    try {
+      // В продакшене тоже инициализируем базу
+      await initDB();
+
+      app.listen(PORT, () => {
+        console.log(`🎉 Server running on port ${PORT}`);
+        console.log(`🔗 Health check: http://localhost:${PORT}/health`);
+        console.log(`💾 Database: ${process.env.DATABASE_URL ? 'Connected to Supabase' : 'Local'}`);
+      });
+    } catch (error) {
+      console.error('💥 Failed to start server:', error);
+      // В продакшене продолжаем работать даже если БД не подключилась
+      app.listen(PORT, () => {
+        console.log(`🚨 Server running in fallback mode on port ${PORT}`);
+        console.log('⚠️ Database features will not work');
+      });
+    }
+  };
 
 startServer();
