@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSpace - Современные технологии</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-rocket"></i>
+                    <span>TechSpace</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Главная</a></li>
+                    <li><a href="#about" class="nav-link">О нас</a></li>
+                    <li><a href="#services" class="nav-link">Услуги</a></li>
+                    <li><a href="#portfolio" class="nav-link">Портфолио</a></li>
+                    <li><a href="#blog" class="nav-link">Блог</a></li>
+                    <li><a href="#contact" class="nav-link">Контакты</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-background">
+                <div class="hero-particles" id="particles"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">Создаем</span>
+                    <span class="title-line">Будущее</span>
+                    <span class="title-line">Сегодня</span>
+                </h1>
+                <p class="hero-subtitle">Инновационные решения для вашего бизнеса</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="scrollToSection('services')">
+                        <i class="fas fa-play"></i>
+                        Начать проект
+                    </button>
+                    <button class="btn-secondary" onclick="scrollToSection('portfolio')">
+                        <i class="fas fa-eye"></i>
+                        Наши работы
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number" data-target="150">0</div>
+                        <div class="stat-label">Проектов</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Клиентов</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-target="3">0</div>
+                        <div class="stat-label">Года опыта</div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>О нашей компании</h2>
+                    <p>Мы создаем цифровые продукты, которые меняют мир</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Почему выбирают нас?</h3>
+                        <p>Мы команда профессионалов, увлеченных созданием инновационных решений. Наш подход сочетает в себе креативность, техническое мастерство и глубокое понимание бизнес-процессов.</p>
+
+                        <div class="features-grid">
+                            <div class="feature">
+                                <i class="fas fa-bolt"></i>
+                                <h4>Скорость</h4>
+                                <p>Быстрая разработка без потери качества</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>Надежность</h4>
+                                <p>Стабильная работа 24/7</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                                <h4>Масштабируемость</h4>
+                                <p>Растем вместе с вашим бизнесом</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-headset"></i>
+                                <h4>Поддержка</h4>
+                                <p>Круглосуточная техническая поддержка</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-visual">
+                        <div class="floating-card card-1">
+                            <i class="fas fa-code"></i>
+                            <span>Чистый код</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Адаптивность</span>
+                        </div>
+                        <div class="floating-card card-3">
+                            <i class="fas fa-rocket"></i>
+                            <span>Инновации</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Наши услуги</h2>
+                    <p>Полный цикл разработки digital-продуктов</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Веб-разработка</h3>
+                        <p>Современные веб-приложения на React, Vue, Node.js</p>
+                        <ul class="service-features">
+                            <li>SPA приложения</li>
+                            <li>Прогрессивные веб-приложения</li>
+                            <li>Интернет-магазины</li>
+                        </ul>
+                        <button class="btn-service">Узнать больше</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Мобильные приложения</h3>
+                        <p>Кроссплатформенные приложения для iOS и Android</p>
+                        <ul class="service-features">
+                            <li>React Native</li>
+                            <li>Flutter</li>
+                            <li>Нативные приложения</li>
+                        </ul>
+                        <button class="btn-service">Узнать больше</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Облачные решения</h3>
+                        <p>Масштабируемая облачная инфраструктура</p>
+                        <ul class="service-features">
+                            <li>AWS & Azure</li>
+                            <li>Микросервисная архитектура</li>
+                            <li>DevOps автоматизация</li>
+                        </ul>
+                        <button class="btn-service">Узнать больше</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Наши работы</h2>
+                    <p>Реализованные проекты и успешные кейсы</p>
+                </div>
+                <div class="portfolio-filter">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="web">Веб-сайты</button>
+                    <button class="filter-btn" data-filter="mobile">Приложения</button>
+                    <button class="filter-btn" data-filter="design">Дизайн</button>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" data-category="web">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400" alt="Проект 1">
+                            <div class="portfolio-overlay">
+                                <h4>Корпоративный портал</h4>
+                                <p>React, Node.js, PostgreSQL</p>
+                                <button class="btn-view">Смотреть проект</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-category="mobile">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400" alt="Проект 2">
+                            <div class="portfolio-overlay">
+                                <h4>Мобильное приложение</h4>
+                                <p>React Native, Firebase</p>
+                                <button class="btn-view">Смотреть проект</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-category="design">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400" alt="Проект 3">
+                            <div class="portfolio-overlay">
+                                <h4>Брендинг проекта</h4>
+                                <p>UI/UX дизайн</p>
+                                <button class="btn-view">Смотреть проект</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="blog">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Последние статьи</h2>
+                    <p>Полезные материалы и новости из мира технологий</p>
+                </div>
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400" alt="Блог 1">
+                            <div class="blog-date">
+                                <span>15</span>
+                                <span>Янв</span>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Тренды веб-разработки в 2024</h3>
+                            <p>Обзор новых технологий и подходов в создании современных веб-приложений...</p>
+                            <a href="#" class="blog-link">Читать далее →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400" alt="Блог 2">
+                            <div class="blog-date">
+                                <span>12</span>
+                                <span>Янв</span>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Оптимизация производительности React</h3>
+                            <p>Практические советы по улучшению производительности ваших React-приложений...</p>
+                            <a href="#" class="blog-link">Читать далее →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400" alt="Блог 3">
+                            <div class="blog-date">
+                                <span>10</span>
+                                <span>Янв</span>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Введение в микросервисы</h3>
+                            <p>Как архитектура микросервисов меняет подход к разработке сложных систем...</p>
+                            <a href="#" class="blog-link">Читать далее →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Свяжитесь с нами</h2>
+                    <p>Готовы начать проект? Давайте обсудим!</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Адрес</h4>
+                                <p>г. Москва, ул. Примерная, 123</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Телефон</h4>
+                                <p>+7 (999) 123-45-67</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@techspace.ru</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Режим работы</h4>
+                                <p>Пн-Пт: 9:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Ваш email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="subject" placeholder="Тема сообщения">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" placeholder="Ваше сообщение" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                Отправить сообщение
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guestbook Section -->
+        <section id="guestbook" class="guestbook">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Гостевая книга</h2>
+                    <p>Оставьте ваш отзыв или сообщение</p>
+                </div>
+                <div class="guestbook-content">
+                    <div class="message-form">
+                        <h3>Напишите сообщение</h3>
+                        <div class="form-group">
+                            <input type="text" id="userName" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="messageText" placeholder="Ваше сообщение" rows="4" required></textarea>
+                        </div>
+                        <button class="btn-primary" onclick="addMessage()">
+                            <i class="fas fa-comment"></i>
+                            Отправить сообщение
+                        </button>
+                    </div>
+
+                    <div class="guestbook-stats">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-number" id="totalMessages">0</div>
+                                    <div class="stat-label">Сообщений</div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-number" id="totalUsers">0</div>
+                                    <div class="stat-label">Пользователей</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="messages-container">
+                    <h3>Последние сообщения</h3>
+                    <div class="messages-list" id="messagesList">
+                        <!-- Сообщения будут загружаться здесь -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-rocket"></i>
+                        <span>TechSpace</span>
+                    </div>
+                    <p>Создаем инновационные решения для цифрового будущего.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="#">Веб-разработка</a></li>
+                        <li><a href="#">Мобильные приложения</a></li>
+                        <li><a href="#">Облачные решения</a></li>
+                        <li><a href="#">UI/UX дизайн</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Команда</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                        <li><a href="#">Блог</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Примерная, 123</li>
+                        <li><i class="fas fa-phone"></i> +7 (999) 123-45-67</li>
+                        <li><i class="fas fa-envelope"></i> info@techspace.ru</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechSpace. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

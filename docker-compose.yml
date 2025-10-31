@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:13
+    container_name: mywebsite-postgres
+    environment:
+      POSTGRES_DB: mywebsite
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    command: >
+      postgres
+      -c listen_addresses='*'
+      -c log_connections=on
+      -c log_disconnections=on
+
+volumes:
+  postgres_data:
