@@ -82,6 +82,55 @@ app.get('/api/db-check', async (req, res) => {
 
 // Инициализация базы данных и запуск сервера
 // Инициализация базы данных и запуск сервера
+// Diagnostic endpoint
+app.get('/api/debug', async (req, res) => {
+    try {
+      const { Pool } = require('pg');
+
+      // Проверяем переменные окружения
+      const hasDbUrl = !!process.env.DATABASE_URL;
+      const dbUrlPreview = hasDbUrl ?
+        process.env.DATABASE_URL.replace(/:[^:@]+@/, ':***@') : 'Not set';
+
+      // Пробуем подключиться к базе
+      let dbStatus = 'Not attempted';
+      let dbError = null;
+
+      if (hasDbUrl) {
+        try {
+          const pool = new Pool({
+            connectionString: process.env.DATABASE_URL,
+            ssl: { rejectUnauthorized: false }
+          });
+          const client = await pool.connect();
+          const result = await client.query('SELECT NOW() as time');
+          dbStatus = 'Connected';
+          client.release();
+        } catch (err) {
+          dbStatus = 'Failed';
+          dbError = err.message;
+        }
+      }
+
+      res.json({
+        app: 'Running',
+        environment: process.env.NODE_ENV || 'development',
+        database: {
+          hasConnectionString: hasDbUrl,
+          connectionString: dbUrlPreview,
+          status: dbStatus,
+          error: dbError
+        },
+        timestamp: new Date().toISOString()
+      });
+
+    } catch (error) {
+      res.status(500).json({
+        error: error.message,
+        timestamp: new Date().toISOString()
+      });
+    }
+  });
 const startServer = async () => {
     console.log('🚀 Starting server...');
     console.log('📁 Environment:', process.env.NODE_ENV || 'development');
@@ -89,6 +138,7 @@ const startServer = async () => {
     try {
       // В продакшене тоже инициализируем базу
       await initDB();
+
 
       app.listen(PORT, () => {
         console.log(`🎉 Server running on port ${PORT}`);
